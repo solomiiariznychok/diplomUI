@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { ApiService } from './api.service';
-import {Formula} from "../models/formula.model";
+import {Formula} from '../models/formula.model';
 
 @Injectable()
 export class FormulaService {

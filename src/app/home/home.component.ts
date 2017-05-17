@@ -41,15 +41,6 @@ export class HomeComponent implements OnInit {
       this.formulas = formulas;
       debugger;
       this.formulasLoaded = true;
-      debugger;
-      for (let ek of formulas[17].yearSumList){
-        Object.keys(ek).forEach(key => {
-          this.yers.push(Number(key));
-          console.log('yers: ' + this.yers);
-          this.profitInYear.push(ek[key]);
-          console.log('profitInYear: ' + this.profitInYear);
-        });
-      }
     });
 
   }

@@ -1,77 +1,88 @@
 <div class="home-page">
 
-  <div class="banner" *showAuthed="false">
-    <div class="container">
-      <h1 class="logo-font">Solya Riznychok Diplom</h1>
-    </div>
-  </div>
-  <div class="container page">
-
-  <div class="container">
-    <h1></h1>
-    <form  [formGroup]="formulaForm">
-      <fieldset [disabled]="isSubmitting">
-        <fieldset class="form-group">
-      <div class="form-group row">
-        <label for="sum">Сума</label>
-        <input  type="text" formControlName="sum" placeholder="Сума" class="form-control" id="sum" required>
-      </div>
-        </fieldset>
-        <fieldset class="form-group">
-      <div class="form-group row">
-        <label for="yearCount">Кількість років</label>
-        <input   type="text" placeholder="Кількість років" class="form-control"  id="yearCount" formControlName="yearCount">
-      </div>
-        </fieldset>
-        <fieldset class="form-group">
-      <div class="form-group row">
-        <label for="percent">Відсоток</label>
-        <input  type="text" placeholder="Відсоток" class="form-control" id="percent" formControlName="percent">
-      </div>
-        </fieldset>
-      <button  type="button" class="btn btn-success" (click)="caclulateFormula()">Обчислити</button>
-      </fieldset>
-    </form>
-  </div>
-
-    <div class="row">
-
-      <div>
-        <div *ngFor="let formula of formulas">
-          <div *ngIf="formula">
-          <div class="row">
-            Сума покладенна в банк: {{formula?.sum}}
-          </div>
-          <div class="row">
-            Кількість років: {{formula?.yearCount}}
-          </div>
-            <div class="row">
-              Відсоток: {{formula?.percent}}%
-            </div>
-          <div class="row">
-            Отримана сума через {{formula?.yearCount}} років: {{ formula?.result }}
-          </div>
-          <!--<div *ngFor="let yearSum of formula?.yearSumList">-->
-          <!--{{yearSum | json}}-->
-          <!--</div>-->
-          <!--: {{formula?.createdDate}}-->
-          <!--</div>-->
-          <div class="row">
-            Графік і табличка зростання суми в банку
-          </div>
-            <div *ngIf="formula">
-              <div *ngIf="formula.yearSumList && formula.yearSumList.length > 0">
-                <chart-page [sum]="formula.sum" [data]="formula.yearSumList"></chart-page>
-              </div>
-            </div>
-          </div>
-
-          <!--<chart-page></chart-page>-->
+    <div class="banner" *showAuthed="false">
+        <div class="container">
+            <h2 class="logo-font">Побудова фінансово-економічних моделей</h2>
         </div>
-      </div>
+    </div>
+    <div class="container page" style="margin-left: 10px; margin-right: 10px">
+
+        <!--<div class="container">-->
+            <div class="row">
+                <div class="col-6 col-sm-2">
+                    <form [formGroup]="formulaForm">
+                        <fieldset [disabled]="isSubmitting">
+                            <fieldset class="form-group">
+                                <div class="form-group row">
+                                    <label for="sum">Сума</label>
+                                    <input type="text" formControlName="sum" placeholder="Сума" class="form-control"
+                                           id="sum" required>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="form-group row">
+                                    <label for="yearCount">Кількість років</label>
+                                    <input type="text" placeholder="Кількість років" class="form-control" id="yearCount"
+                                           formControlName="yearCount">
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="form-group row">
+                                    <label for="percent">Відсоток</label>
+                                    <input type="text" placeholder="Відсоток" class="form-control" id="percent"
+                                           formControlName="percent">
+                                </div>
+                            </fieldset>
+                            <div class="form-group row">
+                                <button type="button" class="btn btn-success" (click)="caclulateFormula()">Обчислити
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            <!--</div>-->
+
+
+        <!--<div class="row">-->
+            <div class="col-sm-8 offset-sm-2">
+                <div *ngFor="let formula of formulas">
+                    <div *ngIf="formula">
+                        <div class="row">
+                            Сума покладенна в банк: {{formula?.sum}}
+                        </div>
+                        <div class="row">
+                            Кількість років: {{formula?.yearCount}}
+                        </div>
+                        <div class="row">
+                            Відсоток: {{formula?.percent}}%
+                        </div>
+                        <div class="row">
+                            Отримана сума через {{formula?.yearCount}} років: {{ formula?.result }}
+                        </div>
+                        <div class="row">
+                            Дата створення формул: {{formula?.createdDate}}
+                        </div>
+                        <!--<div *ngFor="let yearSum of formula?.yearSumList">-->
+                        <!--{{yearSum | json}}-->
+                        <!--</div>-->
+                        <!--: {{formula?.createdDate}}-->
+                        <!--</div>-->
+                        <div class="row">
+                            Графік і табличка зростання суми в банку
+                        </div>
+                        <div *ngIf="formula">
+                                <chart-page [data]="formula"></chart-page>
+                        </div>
+                    </div>
+
+                    <!--<chart-page></chart-page>-->
+                </div>
+            <!--</div>-->
+
+        </div>
+    </div>
 
     </div>
-  </div>
 
 
-  </div>
+</div>
