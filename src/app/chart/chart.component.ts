@@ -22,7 +22,9 @@ export class ChartComponent implements OnInit, OnChanges  {
 
   resultProfitFirstFormula: Array<Number> = [];
   resultProfitSecondFormula: Array<Number> = [];
-  resultProfitThirdFormula: Array<Number> = [];
+  // resultProfitThirdFormula: Array<Number> = [];
+  resultProfitFourthFormula: Array<Number> = [];
+  resultProfitFifthFormula: Array<Number> = [];
   constructor(
     private router: Router,
     private formulaService: FormulaService,
@@ -39,7 +41,6 @@ export class ChartComponent implements OnInit, OnChanges  {
   };
 
   public showChart(): void {
-    debugger;
     this.yers.push(0);
     if (this.data.resultByFirstFormula != null) {
       this.resultProfitFirstFormula.push(0);
@@ -70,15 +71,36 @@ export class ChartComponent implements OnInit, OnChanges  {
         });
       };
     }
-    if (this.data.resultByThirdFormula != null) {
-      this.resultProfitThirdFormula.push(0);
-      for (let ek of this.data.resultByThirdFormula.yearSumList) {
-        Object.keys(ek).forEach(key => {
-          console.log('yers: ' + this.yers);
-          this.resultProfitThirdFormula.push(Math.round(ek[key] * 100) / 100);
-        });
-      };
-    }
+    // if (this.data.resultByThirdFormula != null) {
+    //   this.resultProfitThirdFormula.push(0);
+    //   for (let ek of this.data.resultByThirdFormula.yearSumList) {
+    //     Object.keys(ek).forEach(key => {
+    //       console.log('yers: ' + this.yers);
+    //       this.resultProfitThirdFormula.push(Math.round(ek[key] * 100) / 100);
+    //     });
+    //   }
+    //   ;
+    // }
+      if (this.data.resultByFourthFormula != null) {
+        this.resultProfitFourthFormula.push(0);
+        for (let ek of this.data.resultByFourthFormula.yearSumList) {
+          Object.keys(ek).forEach(key => {
+            console.log('yers: ' + this.yers);
+            this.resultProfitFourthFormula.push(Math.round(ek[key] * 100) / 100);
+          });
+        }
+        ;
+      }
+        if (this.data.resultFifthFormula != null) {
+          this.resultProfitFifthFormula.push(0);
+          for (let ek of this.data.resultFifthFormula.yearSumList) {
+            Object.keys(ek).forEach(key => {
+              console.log('yers: ' + this.yers);
+              this.resultProfitFifthFormula.push(Math.round(ek[key] * 100) / 100);
+            });
+          }
+          ;
+        }
   }
 
   public lineChartData:Array<any> = [
@@ -87,7 +109,9 @@ export class ChartComponent implements OnInit, OnChanges  {
     // {data: this.totalSumInYear, label: 'Загальна сума'}
     {data: this.resultProfitFirstFormula, label: 'Прибуток за першою формулою'},
     {data: this.resultProfitSecondFormula, label: 'Прибуток за другою формулою'},
-    {data: this.resultProfitThirdFormula, label: 'Прибуток за третьою формулою'}
+    // {data: this.resultProfitThirdFormula, label: 'Прибуток за третьою формулою'},
+    {data: this.resultProfitFourthFormula, label: 'Прибуток за 4 формулою'},
+    {data: this.resultProfitFifthFormula, label: 'Прибуток за 5 формулою'}
 
   ];
   public lineChartLabels:Array<any> = this.yers;

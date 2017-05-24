@@ -4,9 +4,18 @@ export class Formula {
   sum: number;
   percent: number;
   yearCount: number;
+  annualRate: number;
+  countYearPeriodm: number;
+  countCalculatingn: number
+
+  percentWithVariableRate: number;
+  normalPercentYears: number;
+
   resultByFirstFormula: Result;
   resultBySecondFormula: Result;
   resultByThirdFormula: Result;
+  resultByFourthFormula: Result;
+  resultFifthFormula: Result;
 
 }
 

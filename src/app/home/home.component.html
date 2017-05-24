@@ -9,28 +9,62 @@
 
         <!--<div class="container">-->
             <div class="row">
-                <div class="col-6 col-sm-2">
+                <div class="col-6 col-sm-3">
                     <form [formGroup]="formulaForm">
                         <fieldset [disabled]="isSubmitting">
                             <fieldset class="form-group">
-                                <div class="form-group row">
+                                <div class="row">
                                     <label for="sum">Сума</label>
-                                    <input type="text" formControlName="sum" placeholder="Сума" class="form-control"
+                                    <input type="text" formControlName="sum" aria-required="true" placeholder="Сума" class="form-control"
                                            id="sum" required>
                                 </div>
                             </fieldset>
                             <fieldset class="form-group">
-                                <div class="form-group row">
+                                <div class="row">
                                     <label for="yearCount">Кількість років</label>
-                                    <input type="text" placeholder="Кількість років" class="form-control" id="yearCount"
+                                    <input type="text" placeholder="Кількість років" aria-required="true" class="form-control" id="yearCount"
                                            formControlName="yearCount">
                                 </div>
                             </fieldset>
                             <fieldset class="form-group">
-                                <div class="form-group row">
+                                <div class="row">
                                     <label for="percent">Відсоток</label>
-                                    <input type="text" placeholder="Відсоток" class="form-control" id="percent"
+                                    <input type="text" aria-required="true" placeholder="Відсоток" class="form-control" id="percent"
                                            formControlName="percent">
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label for="percent">Річна ставка</label>
+                                    <input type="text" aria-required="true" placeholder="Річна ставка" class="form-control" id="annualRate"
+                                           formControlName="annualRate">
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label for="percent">Кількість періодів у році</label>
+                                    <input type="text" aria-required="true" placeholder="Кількість періодів у році" class="form-control" id="countYearPeriodm"
+                                           formControlName="countYearPeriodm">
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label for="percent">countCalculatingn</label>
+                                    <input type="text" aria-required="true" placeholder="countCalculatingn" class="form-control" id="countCalculatingn"
+                                           formControlName="countCalculatingn">
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label for="percent">percentWithVariableRate</label>
+                                    <input type="text" aria-required="true" placeholder="percentWithVariableRate" class="form-control" id="percentWithVariableRate"
+                                           formControlName="percentWithVariableRate">
+                                </div>
+                            </fieldset><fieldset class="form-group">
+                                <div class="row">
+                                    <label for="percent">normalPercentYears</label>
+                                    <input type="text" aria-required="true" placeholder="normalPercentYears" class="form-control" id="normalPercentYears"
+                                           formControlName="normalPercentYears">
                                 </div>
                             </fieldset>
                             <div class="form-group row">
@@ -44,7 +78,7 @@
 
 
         <!--<div class="row">-->
-            <div class="col-sm-8 offset-sm-2">
+            <div class="col-sm-8 offset-sm-1">
                 <div *ngFor="let formula of formulas">
                     <div *ngIf="formula">
                         <div class="row">
@@ -61,6 +95,13 @@
                         </div>
                         <div class="row">
                             Дата створення формул: {{formula?.createdDate}}
+                        </div>
+                        <div class="row">
+                            Результати1: {{formula?.resultByFirstFormula.result}}
+                            Результати2: {{formula?.resultBySecondFormula.result}}
+                            Результати3: {{formula?.resultByThirdFormula.result}}
+                            Результати4: {{formula?.resultByFourthFormula.result}}
+                            Результати5: {{formula?.resultFifthFormula.result}}
                         </div>
                         <!--<div *ngFor="let yearSum of formula?.yearSumList">-->
                         <!--{{yearSum | json}}-->

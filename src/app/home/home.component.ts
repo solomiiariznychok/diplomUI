@@ -30,16 +30,19 @@ export class HomeComponent implements OnInit {
       sum: '',
       yearCount: '',
       percent: '',
+      annualRate: '',
+      countYearPeriodm: '',
+      countCalculatingn: '',
+      percentWithVariableRate: '',
+      normalPercentYears: ''
     });
   }
 
   ngOnInit() {
-    debugger;
     this.formulaService.getAll()
     .subscribe(formulas => {
       console.log('formulas: ' + formulas);
       this.formulas = formulas;
-      debugger;
       this.formulasLoaded = true;
     });
 
