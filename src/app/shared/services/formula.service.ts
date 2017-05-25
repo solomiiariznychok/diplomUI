@@ -18,5 +18,8 @@ export class FormulaService {
   add(payload): Observable<Formula> {
     return this.apiService.post('formula', payload);
   }
+  delete(id): void {
+    this.apiService.delete('formula/' + id);
+  }
 
 }

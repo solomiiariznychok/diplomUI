@@ -61,4 +61,8 @@ export class HomeComponent implements OnInit {
             }
         );
   }
+  deleteFormula(id: String, i: number) {
+    this.formulaService.delete(id);
+    this.formulas.splice(i, 1);
+  }
 }

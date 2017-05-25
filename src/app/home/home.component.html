@@ -88,13 +88,13 @@
 
             <!--<div class="row">-->
             <div class="col-sm-8 offset-sm-1">
-                <div *ngFor="let formula of formulas">
+                <div *ngFor="let formula of formulas let i = index" [attr.data-index]="i">
                     <div class="jumbotron" *ngIf="formula">
                         <table class="table">
-
                             <tr>
                                 <td>Сума покладенна в банк:</td>
                                 <td>{{formula?.sum}}</td>
+                                <td><button  type="button" class="btn btn-warn" (click)="deleteFormula(formula.id, i)">Видалити</button></td>
                             </tr>
                             <tr>
                                 <td>Кількість років:</td>
