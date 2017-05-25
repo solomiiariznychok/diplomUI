@@ -2,7 +2,7 @@
 
     <div class="banner" *showAuthed="false">
         <div class="container">
-            <h2 class="logo-font">Побудова фінансово-економічних моделей</h2>
+            <h2 class="logo-font">                  Побудова фінансово-економічних моделей</h2>
         </div>
     </div>
     <div class="container page" style="margin-left: 10px; margin-right: 10px">
@@ -46,34 +46,34 @@
                         </fieldset>
                         <fieldset class="form-group">
                             <div class="row">
-                                <label for="percent">Кількість періодів у році</label>
-                                <input type="text" aria-required="true" placeholder="Кількість періодів у році"
-                                       class="form-control" id="countYearPeriodm"
-                                       formControlName="countYearPeriodm">
+                                <label for="percent">Число нарощувань відсотків на рік</label>
+                                <input type="text" aria-required="true" placeholder="Число нарощувань відсотків на рік"
+                                       class="form-control" id="increasingPercentValueForYear"
+                                       formControlName="increasingPercentValueForYear">
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
                             <div class="row">
-                                <label for="percent">countCalculatingn</label>
-                                <input type="text" aria-required="true" placeholder="countCalculatingn"
-                                       class="form-control" id="countCalculatingn"
-                                       formControlName="countCalculatingn">
+                                <label for="percent">Число періодів нарахувань</label>
+                                <input type="text" aria-required="true" placeholder="Число періодів нарахувань"
+                                       class="form-control" id="countOfCalculatingPeriod"
+                                       formControlName="countOfCalculatingPeriod">
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
                             <div class="row">
-                                <label for="percent">percentWithVariableRate</label>
-                                <input type="text" aria-required="true" placeholder="percentWithVariableRate"
-                                       class="form-control" id="percentWithVariableRate"
-                                       formControlName="percentWithVariableRate">
+                                <label for="percent">Величина змінної ставки</label>
+                                <input type="text" aria-required="true" placeholder="Величина змінної ставки"
+                                       class="form-control" id="changeablePercentRate"
+                                       formControlName="changeablePercentRate">
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
                             <div class="row">
-                                <label for="percent">normalPercentYears</label>
-                                <input type="text" aria-required="true" placeholder="normalPercentYears"
-                                       class="form-control" id="normalPercentYears"
-                                       formControlName="normalPercentYears">
+                                <label for="percent">Величина сталої ставки</label>
+                                <input type="text" aria-required="true" placeholder="Величина сталої ставки"
+                                       class="form-control" id="constantPercentRate"
+                                       formControlName="constantPercentRate">
                             </div>
                         </fieldset>
                         <div class="form-group row">
@@ -101,35 +101,35 @@
                                 <td>{{formula?.yearCount}}</td>
                             </tr>
                             <tr>
-                                <td>Відсоток:</td>
+                                <td>Відсоткове значення:</td>
                                 <td>{{formula?.percent}}%</td>
                             </tr>
                             <tr>
-                                <td>Дата створення формул:</td>
+                                <td>Дата обчислення прибутку:</td>
                                 <td>{{formula?.createdDate}}</td>
                             </tr>
-                            <tr *ngIf="formula?.resultByFirstFormula?.result">
+                            <tr *ngIf="formula?.resultBySimplePercent?.result">
                                 <td>Отримана сума через {{formula?.yearCount}} років (1):</td>
-                                <td> {{formula?.resultByFirstFormula.result}}
+                                <td> {{formula?.resultBySimplePercent.result}}
                                 </td>
-                            <tr *ngIf="formula?.resultBySecondFormula?.result">
+                            <tr *ngIf="formula?.resultByComplexPercent?.result">
                                 <td>Отримана сума через {{formula?.yearCount}} років (2):</td>
-                                <td> {{formula?.resultBySecondFormula.result}}
+                                <td> {{formula?.resultByComplexPercent.result}}
                                 </td>
                             </tr>
-                            <tr *ngIf="formula?.resultByThirdFormula?.result">
+                            <tr *ngIf="formula?.resultByFormulaWithAnnualRate?.result">
                                 <td>Отримана сума через {{formula?.yearCount}} років (3):</td>
-                                <td>{{formula?.resultByThirdFormula.result}}
+                                <td>{{formula?.resultByFormulaWithAnnualRate.result}}
                                 </td>
                             </tr>
-                            <tr *ngIf="formula?.resultByFourthFormula?.result">
+                            <tr *ngIf="formula?.resultByFormulaWithChangRateSimplePercent?.result">
                                 <td>Отримана сума через {{formula?.yearCount}} років (4):</td>
-                                <td>{{formula?.resultByFourthFormula.result}}
+                                <td>{{formula?.resultByFormulaWithChangRateSimplePercent.result}}
                                 </td>
                             </tr>
-                            <tr *ngIf="formula?.resultFifthFormula?.result">
+                            <tr *ngIf="formula?.resultByFormulaWithChangRateComplexPercent?.result">
                                 <td>Отримана сума через {{formula?.yearCount}} років (5):</td>
-                                <td>{{formula?.resultFifthFormula.result}}
+                                <td>{{formula?.resultByFormulaWithChangRateComplexPercent.result}}
                                 </td>
                             </tr>
                         </table>
@@ -139,7 +139,7 @@
                         <!--: {{formula?.createdDate}}-->
                         <!--</div>-->
                         <div class="row">
-                            Графік і табличка зростання суми в банку
+                            Діаграма і табличка зростання сум у банку
                         </div>
                         <div *ngIf="formula">
                             <chart-page [data]="formula"></chart-page>
@@ -154,6 +154,5 @@
         </div>
 
     </div>
-
-
+    
 </div>

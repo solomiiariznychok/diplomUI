@@ -107,11 +107,11 @@ export class ChartComponent implements OnInit, OnChanges  {
     // {data: this.profitInYear, label: 'Прибуток за рік'},
     // {data: this.totalProfitInYear, label: 'Загальний прибуток'},
     // {data: this.totalSumInYear, label: 'Загальна сума'}
-    {data: this.resultProfitFirstFormula, label: 'Прибуток за першою формулою'},
-    {data: this.resultProfitSecondFormula, label: 'Прибуток за другою формулою'},
+    {data: this.resultProfitFirstFormula, label: 'Прибуток при нарахуванні за схемою простих відсотків'},
+    {data: this.resultProfitSecondFormula, label: 'Прибуток при нарахуванні за схемою складних відсотків'},
     // {data: this.resultProfitThirdFormula, label: 'Прибуток за третьою формулою'},
-    {data: this.resultProfitFourthFormula, label: 'Прибуток за 4 формулою'},
-    {data: this.resultProfitFifthFormula, label: 'Прибуток за 5 формулою'}
+    {data: this.resultProfitFourthFormula, label: 'Прибуток при нарахуванні за схемою простих відсотків зі змінною ставкою'},
+    {data: this.resultProfitFifthFormula, label: 'Прибуток при нарахуванні за схемою складних відсотків зі змінною ставкою'}
 
   ];
   public lineChartLabels:Array<any> = this.yers;
@@ -146,11 +146,5 @@ export class ChartComponent implements OnInit, OnChanges  {
   ];
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'bar';
-
-
-
-
-
-
 
 }
