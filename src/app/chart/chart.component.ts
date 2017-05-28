@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { FormulaService, UserService } from '../shared';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import {Formula} from "../shared/models/formula.model";
+import {Formula} from '../shared/models/formula.model';
 
 @Component({
   selector: 'chart-page',
@@ -13,7 +13,7 @@ export class ChartComponent implements OnInit, OnChanges  {
   @Output('onDestroy') onDestroy = new EventEmitter();
   @Input()
   data: Formula;
-  yers: Array<Number> = [];
+  years: Array<Number> = [];
   totalSum: Number;
   totalProfit: Number = 0;
   profitInYear: Array<Number> = [];
@@ -41,16 +41,16 @@ export class ChartComponent implements OnInit, OnChanges  {
   };
 
   public showChart(): void {
-    this.yers.push(0);
-    if (this.data.resultByFirstFormula != null) {
+    this.years.push(0);
+    if (this.data.resultBySimplePercent != null) {
       this.resultProfitFirstFormula.push(0);
       // this.totalSumInYear.push(this.totalSum);
       // this.profitInYear.push(0);
       // this.totalProfitInYear.push(0);
-      for (let ek of this.data.resultByFirstFormula.yearSumList) {
+      for (let ek of this.data.resultBySimplePercent.yearSumList) {
         Object.keys(ek).forEach(key => {
-          this.yers.push(Number(key));
-          console.log('yers: ' + this.yers);
+          this.years.push(Number(key));
+          console.log('yers: ' + this.years);
           this.resultProfitFirstFormula.push(Math.round(ek[key] * 100) / 100);
           // this.profitInYear.push(ek[key]);
           // this.totalSum = ek[key] + this.totalSum;
@@ -62,11 +62,11 @@ export class ChartComponent implements OnInit, OnChanges  {
         });
       };
     }
-    if (this.data.resultBySecondFormula != null) {
+    if (this.data.resultByComplexPercent != null) {
       this.resultProfitSecondFormula.push(0);
-      for (let ek of this.data.resultBySecondFormula.yearSumList) {
+      for (let ek of this.data.resultByComplexPercent.yearSumList) {
         Object.keys(ek).forEach(key => {
-          console.log('yers: ' + this.yers);
+          console.log('yers: ' + this.years);
           this.resultProfitSecondFormula.push(Math.round(ek[key] * 100) / 100);
         });
       };
@@ -81,21 +81,21 @@ export class ChartComponent implements OnInit, OnChanges  {
     //   }
     //   ;
     // }
-      if (this.data.resultByFourthFormula != null) {
+      if (this.data.resultByFormulaWithChangRateSimplePercent != null) {
         this.resultProfitFourthFormula.push(0);
-        for (let ek of this.data.resultByFourthFormula.yearSumList) {
+        for (let ek of this.data.resultByFormulaWithChangRateSimplePercent.yearSumList) {
           Object.keys(ek).forEach(key => {
-            console.log('yers: ' + this.yers);
+            console.log('yers: ' + this.years);
             this.resultProfitFourthFormula.push(Math.round(ek[key] * 100) / 100);
           });
         }
         ;
       }
-        if (this.data.resultFifthFormula != null) {
+        if (this.data.resultByFormulaWithChangRateComplexPercent != null) {
           this.resultProfitFifthFormula.push(0);
-          for (let ek of this.data.resultFifthFormula.yearSumList) {
+          for (let ek of this.data.resultByFormulaWithChangRateComplexPercent.yearSumList) {
             Object.keys(ek).forEach(key => {
-              console.log('yers: ' + this.yers);
+              console.log('yers: ' + this.years);
               this.resultProfitFifthFormula.push(Math.round(ek[key] * 100) / 100);
             });
           }
@@ -103,7 +103,7 @@ export class ChartComponent implements OnInit, OnChanges  {
         }
   }
 
-  public lineChartData:Array<any> = [
+  public lineChartData: Array<any> = [
     // {data: this.profitInYear, label: 'Прибуток за рік'},
     // {data: this.totalProfitInYear, label: 'Загальний прибуток'},
     // {data: this.totalSumInYear, label: 'Загальна сума'}
@@ -114,11 +114,12 @@ export class ChartComponent implements OnInit, OnChanges  {
     {data: this.resultProfitFifthFormula, label: 'Прибуток при нарахуванні за схемою складних відсотків зі змінною ставкою'}
 
   ];
-  public lineChartLabels:Array<any> = this.yers;
-  public lineChartOptions:any = {
+
+  public lineChartLabels: Array<any> = this.years;
+  public lineChartOptions: any = {
     responsive: true
   };
-  public lineChartColors:Array<any> = [
+  public lineChartColors: Array<any> = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
@@ -144,7 +145,7 @@ export class ChartComponent implements OnInit, OnChanges  {
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
-  public lineChartLegend:boolean = true;
-  public lineChartType:string = 'bar';
+  public lineChartLegend: boolean = true;
+  public lineChartType: string = 'bar';
 
 }

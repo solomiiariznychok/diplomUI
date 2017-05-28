@@ -5,17 +5,18 @@ export class Formula {
   percent: number;
   yearCount: number;
   annualRate: number;
-  countYearPeriodm: number;
-  countCalculatingn: number
+  increasingPercentValueForYear: number;
+  countOfCalculatingPeriod: number
 
-  percentWithVariableRate: number;
-  normalPercentYears: number;
+  changeablePercentRate: number;
+  constantPercentRate: number;
 
-  resultByFirstFormula: Result;
-  resultBySecondFormula: Result;
-  resultByThirdFormula: Result;
-  resultByFourthFormula: Result;
-  resultFifthFormula: Result;
+  resultBySimplePercent: Result;
+  resultByComplexPercent: Result;
+  resultByFormulaWithAnnualRate: Result;
+  resultByFormulaWithChangRateSimplePercent: Result;
+  resultByFormulaWithChangRateComplexPercent: Result;
+
 
 }
 

@@ -31,11 +31,11 @@ export class HomeComponent implements OnInit {
       yearCount: '',
       percent: '',
       annualRate: '',
-      countYearPeriodm: '',
-      countCalculatingn: '',
-      percentWithVariableRate: '',
-      normalPercentYears: ''
-    });
+      increasingPercentValueForYear: '',
+      countOfCalculatingPeriod: '',
+      changeablePercentRate: '',
+      constantPercentRate: ''
+  });
   }
 
   ngOnInit() {

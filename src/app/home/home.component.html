@@ -2,14 +2,14 @@
 
     <div class="banner" *showAuthed="false">
         <div class="container">
-            <h2 class="logo-font">                  Побудова фінансово-економічних моделей</h2>
+            <h2 align="center" class="logo-font"> Побудова фінансово-економічних моделей </h2>
         </div>
     </div>
-    <div class="container page" style="margin-left: 10px; margin-right: 10px">
+    <div class="container page" style="margin-left: 30px; margin-right: 30px">
 
         <!--<div class="container">-->
         <div class="row">
-            <div class="col-6 col-sm-3">
+            <div class="col-6 col-sm-2">
                 <form [formGroup]="formulaForm">
                     <fieldset [disabled]="isSubmitting">
                         <fieldset class="form-group">
@@ -75,15 +75,15 @@
                                        class="form-control" id="constantPercentRate"
                                        formControlName="constantPercentRate">
                             </div>
-                        </fieldset>
-                        <div class="form-group row">
-                            <button type="button" class="btn btn-success" (click)="caclulateFormula()">Обчислити
-                            </button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-            <!--</div>-->
+                             </fieldset>
+                          <div class="form-group row">
+                               <button type="button" class="btn btn-success" (click)="caclulateFormula()">Обчислити
+                                 </button>
+                             </div>
+                         </fieldset>
+                  </form>
+              </div>
+              <!--</div>-->
 
 
             <!--<div class="row">-->
@@ -109,26 +109,26 @@
                                 <td>{{formula?.createdDate}}</td>
                             </tr>
                             <tr *ngIf="formula?.resultBySimplePercent?.result">
-                                <td>Отримана сума через {{formula?.yearCount}} років (1):</td>
+                                <td>Отримана сума через {{formula?.yearCount}} років за схемою простих відсотків:</td>
                                 <td> {{formula?.resultBySimplePercent.result}}
                                 </td>
                             <tr *ngIf="formula?.resultByComplexPercent?.result">
-                                <td>Отримана сума через {{formula?.yearCount}} років (2):</td>
+                                <td>Отримана сума через {{formula?.yearCount}} років за схемою складних відсотків:</td>
                                 <td> {{formula?.resultByComplexPercent.result}}
                                 </td>
                             </tr>
                             <tr *ngIf="formula?.resultByFormulaWithAnnualRate?.result">
-                                <td>Отримана сума через {{formula?.yearCount}} років (3):</td>
+                                <td>Отримана сума через {{formula?.yearCount}} років за схемою нарощування відсотків щоквартально:</td>
                                 <td>{{formula?.resultByFormulaWithAnnualRate.result}}
                                 </td>
                             </tr>
                             <tr *ngIf="formula?.resultByFormulaWithChangRateSimplePercent?.result">
-                                <td>Отримана сума через {{formula?.yearCount}} років (4):</td>
+                                <td>Отримана сума через {{formula?.yearCount}} років років за схемою простих відсотків зі змінною ставкою:</td>
                                 <td>{{formula?.resultByFormulaWithChangRateSimplePercent.result}}
                                 </td>
                             </tr>
                             <tr *ngIf="formula?.resultByFormulaWithChangRateComplexPercent?.result">
-                                <td>Отримана сума через {{formula?.yearCount}} років (5):</td>
+                                <td>Отримана сума через {{formula?.yearCount}} років за схемою складних відсотків зі змінною ставкою:</td>
                                 <td>{{formula?.resultByFormulaWithChangRateComplexPercent.result}}
                                 </td>
                             </tr>
